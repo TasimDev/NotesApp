@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+*::selection {
+    background-color: aquamarine;
+}
+
+body {
+    background-color: aquamarine;
+}
+
+.wrapper {
+    margin: 50px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 265px);
+}
+
+.wrapper li {
+   
+    height: fit-content;
+    overflow-wrap: break-word;
+    list-style: none;
+    background: white;
+    border-radius: 5px;
+    padding: 15px 20px 20px;
+}
+
+.wrapper .note {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.add-box,
+.icon,
+.bottom-content,
+.settings .menu li,
+.popup,
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-box,
+.icon {
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.add-box .icon {
+    border: 2px dashed aquamarine;
+    width: 78px;
+    height: 78px;
+    font-size: 40px;
+    color: aquamarine;
+    border-radius: 50%;
+}
+
+.add-box p {
+    color: aquamarine;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+
+
+.note p {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.note span {
+    display: block;
+    margin-top: 6px;
+    color: #575757;
+    font-size: 16px;
+}
+
+.note .bottom-content {
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.bottom-content span {
+    color: #565656;
+    font-size: 16px;
+}
+
+.bottom-content .settings i {
+    color: #565656;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.settings {
+    position: relative;
+}
+
+.settings .menu {
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+    border-radius: 4px;
+    transform: scale(0);
+    background-color: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+    transform-origin: bottom right;
+}
+
+.settings.show .menu {
+    transform: scale(1);
+}
+
+
+
+.settings .menu li {
+    height: fit-content;
+    padding: 8px;
+    font-size: 16px;
+    justify-content: flex-start;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background-color: rgba(189, 189, 189, 0.733);
+}
+
+.menu li i {
+    padding-right: 8px;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.popup-box .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 6px;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+}
+
+.popup .content {
+    width: calc(100% - 15px);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.popup .content header {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 25px;
+}
+
+.content header p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.content header i {
+    color: #8b8989;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+.content form {
+    margin: 15px 25px 35px;
+}
+
+.content form .row {
+    margin-bottom: 20px;
+}
+
+.content form .row label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.content form :where(input, textarea) {
+    width: 100%;
+    outline: none;
+    height: 50px;
+    font-size: 17px;
+    border: 1.2px solid gray;
+    border-radius: 4px;
+    padding: 0 15px;
+}
+
+.content textarea {
+    padding-top: 10px;
+    height: 150px;
+    resize: none;
+}
+
+.content form button {
+    width: 100%;
+    height: 50px;
+    background-color: aquamarine;
+    border: none;
+    border-radius: 4px;
+    font-size: 17px;
+    color: white;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.content form button:hover {
+    background-color: rgb(0, 162, 255);
+    transform: scale(0.98);
+}
+
+.popup-box,
+.popup-box .popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+
+}
+
+.popup-box.show,
+.popup-box.show .popup {
+    opacity: 1;
+    pointer-events: auto;
+}
